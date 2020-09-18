@@ -21,7 +21,7 @@ const ColorList = ({ colors, updateColors, getColors }) => {
       .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
       .then((res) => {
         updateColors(colors);
-        getColors()
+        getColors();
       })
       .catch((err) => {
         console.log(err);
@@ -33,7 +33,7 @@ const ColorList = ({ colors, updateColors, getColors }) => {
       .delete(`/api/colors/${id}`)
       .then((res) => {
         updateColors(colors);
-        getColors()
+        getColors();
       })
       .catch((err) => {
         console.log(err);
@@ -44,7 +44,7 @@ const ColorList = ({ colors, updateColors, getColors }) => {
   return (
     <div className="colors-wrap">
       <p>colors</p>
-      <ul>
+      <ul data-testid="color">
         {colors.map((color) => (
           <li key={color.color} onClick={() => editColor(color)}>
             <span>
